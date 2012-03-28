@@ -15,59 +15,87 @@
         margin-right: 20px;
         margin-bottom: 20px;
       }
+
+      h1 {
+        clear: left;
+      }
     </style>
     <script src="../lib/mediaplayerlib.js"></script>
+    <script>
+      var vimeo = {
+        "@type": "VideoObject",
+        "itemType": "VideoObject",
+        "embedURL": "http://player.vimeo.com/video/1024832"
+      };
+
+      var youtube = {
+        "@type": "VideoObject",
+        "embedURL": "http://www.youtube.com/v/jOUAIRbrv6s?version=3&f=videos&app=youtube_gdata"
+      };
+
+      var mp4 = {
+        "@type": "VideoObject",
+        "itemType": "VideoObject",
+        "contentURL": "http://medias2.francetv.fr/videosread/francetv/m//hbbtv-philips/2012/S13/J3/61232926-20120328-1400k.mp4"
+      };
+    </script>
   </head>
   <body>
-    <h1>Examples</h1>
+    <h1>Default Strategy</h1>
 
     <article>
       <h2>Vimeo</h2>
       <script>
-
-        var vimeo = {
-          "@type": "VideoObject",
-          "itemType": "VideoObject",
-          "embedURL": "http://player.vimeo.com/video/1024832"
-        };
-
         mediaFactory.resolve(vimeo, {width: 320, height: 240}).toHtml(function(err, html) {
           document.write(html);
         });
-
       </script>
     </article>
 
     <article>
       <h2>Youtube</h2>
       <script>
-
-        var youtube = {
-          "@type": "VideoObject",
-          "embedURL": "http://www.youtube.com/v/jOUAIRbrv6s?version=3&f=videos&app=youtube_gdata"
-        };
-
         mediaFactory.resolve(youtube, {width: 320, height: 240}).toHtml(function(err, html) {
           document.write(html);
         });
-
       </script>
     </article>
 
     <article>
       <h2>MP4</h2>
       <script>
-
-        var mp4 = {
-          "@type": "VideoObject",
-          "itemType": "VideoObject",
-          "contentURL": "http://medias2.francetv.fr/videosread/francetv/m//hbbtv-philips/2012/S13/J3/61232926-20120328-1400k.mp4"
-        };
-
         mediaFactory.resolve(mp4, {width: 320, height: 240}).toHtml(function(err, html) {
           document.write(html);
         });
+      </script>
+    </article>
 
+    <h1>HTML5 Strategy</h1>
+
+    <article>
+      <h2>Vimeo</h2>
+      <script>
+        mediaFactory.resolve(vimeo, {strategy: 'html5', width: 320, height: 240}).toHtml(function(err, html) {
+          document.write(html);
+        });
+      </script>
+    </article>
+
+    <article>
+      <h2>Youtube</h2>
+      <script>
+        mediaFactory.resolve(youtube, {strategy: 'html5', width: 320, height: 240}).toHtml(function(err, html) {
+          document.write(html);
+        });
+      </script>
+    </article>
+
+    <article>
+      <h2>MP4</h2>
+      <script>
+        mediaFactory.resolve(mp4, {strategy: 'html5', width: 320, height: 240}).toHtml(function(err, html) {
+          document.write(html);
+        });
       </script>
     </article>
   </body>
