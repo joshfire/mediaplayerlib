@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Media Player Lib</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px 0 20px 20px;
+      }
+
+      article {
+        float: left;
+        margin-right: 20px;
+        margin-bottom: 20px;
+      }
+    </style>
+    <script src="../lib/mediaplayerlib.js"></script>
+  </head>
+  <body>
+    <h1>Examples</h1>
+
+    <article>
+      <h2>Vimeo</h2>
+      <script>
+
+        var vimeo = {
+          "@type": "VideoObject",
+          "itemType": "VideoObject",
+          "embedURL": "http://player.vimeo.com/video/1024832"
+        };
+
+        mediaFactory.resolve(vimeo, {width: 320, height: 240}).toHtml(function(err, html) {
+          document.write(html);
+        });
+
+      </script>
+    </article>
+
+    <article>
+      <h2>Youtube</h2>
+      <script>
+
+        var youtube = {
+          "@type": "VideoObject",
+          "embedURL": "http://www.youtube.com/v/jOUAIRbrv6s?version=3&f=videos&app=youtube_gdata"
+        };
+
+        mediaFactory.resolve(youtube, {width: 320, height: 240}).toHtml(function(err, html) {
+          document.write(html);
+        });
+
+      </script>
+    </article>
+
+    <article>
+      <h2>MP4</h2>
+      <script>
+
+        var mp4 = {
+          "@type": "VideoObject",
+          "itemType": "VideoObject",
+          "contentURL": "http://medias2.francetv.fr/videosread/francetv/m//hbbtv-philips/2012/S13/J3/61232926-20120328-1400k.mp4"
+        };
+
+        mediaFactory.resolve(mp4, {width: 320, height: 240}).toHtml(function(err, html) {
+          document.write(html);
+        });
+
+      </script>
+    </article>
+  </body>
+</html>
