@@ -1,0 +1,35 @@
+{
+  "name": "mediaplayerlib",
+  "preferGlobal": "false",
+  "version": "0.0.1",
+  "author": "joshfire <stephan@joshfire.com>",
+  "description": "play media on all devices",
+  "contributors": [
+    {
+      "name": "Stephan Florquin",
+      "email": "stephan.florquin@gmail.com"
+    }
+  ],
+  "scripts": {
+    "minimize": "uglifyjs -o mediaplayerlib.min.js lib/mediaplayerlib.js"
+  },
+  "main": "./lib/http-server",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/joshfire/mediaplayerlib.git"
+  },
+  "keywords": [
+    "video",
+    "video player",
+    "html5"
+  ],
+  "dependencies" : {
+  },
+  "noAnalyze": true,
+  "devDependencies": {
+    "uglify-js"    :  "1.2.6"
+  },
+  "bundleDependencies": [
+  ],
+  "license": "MIT"
+}
