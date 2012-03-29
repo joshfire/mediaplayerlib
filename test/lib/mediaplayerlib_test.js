@@ -10,7 +10,8 @@ var youtube = {
 var vimeo = {
   "@type": "VideoObject",
   "itemType": "VideoObject",
-  "embedURL": "http://player.vimeo.com/video/1024832"
+  "embedURL": "http://player.vimeo.com/video/1024832",
+  "URL": "https://vimeo.com/1024832"
 };
 
 var mp4 = {
@@ -63,7 +64,7 @@ vows.describe('Media Player Lib').addBatch({
     'should not return an error': videoHelpers.noError,
     'should return an iframe': videoHelpers.iframe
   },
-  'Using the default strategy on a Videmo video': {
+  'Using the default strategy on a Vimeo video': {
     topic: videoHelpers.vimeo(),
     'should not return an error': videoHelpers.noError,
     'should return an iframe': videoHelpers.iframe
@@ -80,7 +81,7 @@ vows.describe('Media Player Lib').addBatch({
     'should not return an error': videoHelpers.noError,
     'should return an iframe': videoHelpers.iframe
   },
-  'Using the html5 strategy on a Videmo video': {
+  'Using the html5 strategy on a Vimeo video': {
     topic: videoHelpers.vimeo({strategy: 'html5'}),
     'should not return an error': videoHelpers.noError,
     'should return an iframe': videoHelpers.iframe
@@ -91,4 +92,12 @@ vows.describe('Media Player Lib').addBatch({
     'should return an html5 video': videoHelpers.html5,
     'should not have a Flash fallback': videoHelpers.noFlashFallback
   },
+  //--------------------------------------------------------------------------
+  'Using the oembed strategy on a Vimeo video': {
+    topic: videoHelpers.vimeo({strategy: 'oembed'}),
+    'should not return an error': videoHelpers.noError,
+    'should not return html': function(err, html) {
+      assert.isTrue(typeof 'html' === 'string' && html.length > 0);
+    }
+  }
 }).export(module);
