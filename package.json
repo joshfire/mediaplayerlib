@@ -13,7 +13,7 @@
   "scripts": {
     "minimize": "uglifyjs -o mediaplayerlib.min.js lib/mediaplayerlib.js"
   },
-  "main": "./lib/http-server",
+  "main": "./lib/mediaplayerlib",
   "repository": {
     "type": "git",
     "url": "git://github.com/joshfire/mediaplayerlib.git"
