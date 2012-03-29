@@ -11,7 +11,8 @@
     }
   ],
   "scripts": {
-    "minimize": "uglifyjs -o mediaplayerlib.min.js lib/mediaplayerlib.js"
+    "minimize": "uglifyjs -o mediaplayerlib.min.js lib/mediaplayerlib.js",
+    "test": "vows"
   },
   "main": "./lib/mediaplayerlib",
   "repository": {
@@ -27,7 +28,8 @@
   },
   "noAnalyze": true,
   "devDependencies": {
-    "uglify-js"    :  "1.2.6"
+    "uglify-js"    :  ">= 1.2.6",
+    "vows"         :  ">= 0.6.2"
   },
   "bundleDependencies": [
   ],
