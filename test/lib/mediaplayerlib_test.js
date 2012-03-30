@@ -4,14 +4,16 @@ var vows = require('vows'),
 
 var youtube = {
   "@type": "VideoObject",
+  "playerType": "iframe",
   "embedURL": "http://www.youtube.com/v/jOUAIRbrv6s?version=3&f=videos&app=youtube_gdata"
 };
 
 var vimeo = {
   "@type": "VideoObject",
   "itemType": "VideoObject",
+  "playerType": "iframe",
   "embedURL": "http://player.vimeo.com/video/1024832",
-  "URL": "https://vimeo.com/1024832"
+  "url": "https://vimeo.com/1024832"
 };
 
 var mp4 = {
