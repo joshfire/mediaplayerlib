@@ -22,6 +22,13 @@ var mp4 = {
   "contentURL": "http://medias2.francetv.fr/videosread/francetv/m//hbbtv-philips/2012/S13/J3/61232926-20120328-1400k.mp4"
 };
 
+var script = {
+  "@type": "VideoObject",
+  "itemType": "VideoObject",
+  "playerType": "script",
+  "embedURL": "http://google.com"
+};
+
 var videoHelpers = {
   youtube: function(options) {
     return function() {
@@ -38,6 +45,11 @@ var videoHelpers = {
       mediaFactory.resolve(mp4, options).toHtml(this.callback);
     }
   },
+  scriptTest: function(options) {
+    return function() {
+      mediaFactory.resolve(script, options).toHtml(this.callback);
+    }
+  },
   unknown: function() {
     return function(options) {
       mediaFactory.resolve({}, options).toHtml(this.callback);
@@ -51,6 +63,9 @@ var videoHelpers = {
   },
   html5: function(err, html) {
     assert.isNotNull(html.match(/<video[^>]*>/));
+  },
+  script: function(err, html) {
+    assert.isNotNull(html.match(/<script[^>]*>/));
   },
   flashFallback: function(err, html) {
     assert.isNotNull(html.match(/video-js/));
@@ -76,6 +91,11 @@ vows.describe('Media Player Lib').addBatch({
     'should not return an error': videoHelpers.noError,
     'should return an html5 video': videoHelpers.html5,
     'should have a Flash fallback': videoHelpers.flashFallback
+  },
+  'Using the default strategy on an script embed': {
+    topic: videoHelpers.scriptTest(),
+    'should not return an error': videoHelpers.noError,
+    'should return a script': videoHelpers.script
   },
   //--------------------------------------------------------------------------
   'Using the html5 strategy on a Youtube video': {
