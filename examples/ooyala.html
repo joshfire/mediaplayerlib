@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Media Player Lib</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px 0 20px 20px;
+      }
+
+      article {
+        margin-right: 20px;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        clear: left;
+        padding-top: 1em;
+      }
+
+      h2 {
+        margin-top: 0;
+      }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="../lib/mediaplayerlib.js"></script>
+    <script>
+      var ooyala = {
+        "@type": "VideoObject",
+        "embedURL": "http://player.ooyala.com/player.js?embedCode=t0bzFhNDpuUhvu1X4TEy3Txwa_KULnG2",
+        "playerType": "script",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Ooyala"
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <h1>Testing Ooyala insertion</h1>
+
+    <article id="default-ooyala">
+      <h2>Ooyala</h2>
+      <div id="ooyala"></div>
+      <script>
+        mediaFactory.resolve(ooyala, {width: 320, height: 240}).toHtml(function(err, html) {
+          $('#default-ooyala').append(html);
+        });
+      </script>
+    </article>
+
+    <article>
+      <h2>Another section</h2>
+      <p>This section should appear next to the video, not before it.</p>
+    </article>
+
+    <script></script>
+  </body>
+</html>

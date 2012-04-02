@@ -55,6 +55,16 @@
       var slideshare = {
         "url": "http://www.slideshare.net/haraldf/business-quotes-for-2011"
       };
+
+      var ooyala = {
+        "@type": "VideoObject",
+        "embedURL": "http://player.ooyala.com/player.js?embedCode=t0bzFhNDpuUhvu1X4TEy3Txwa_KULnG2",
+        "playerType": "script",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Ooyala"
+        }
+      };
     </script>
   </head>
   <body>
@@ -87,6 +97,15 @@
       </script>
     </article>
 
+    <article id="default-ooyala">
+      <h2>Ooyala</h2>
+      <script>
+        mediaFactory.resolve(ooyala, {width: 320, height: 240}).toHtml(function(err, html) {
+          $('#default-ooyala').append(html);
+        });
+      </script>
+    </article>
+
     <h1>HTML5 Strategy</h1>
 
     <article id="html5-vimeo">
@@ -115,6 +134,18 @@
         });
       </script>
     </article>
+
+    <!--
+    Ooyala is restricted to one video per page for the time being, sigh!
+    <article id="html5-ooyala">
+      <h2>Ooyala</h2>
+      <script>
+        mediaFactory.resolve(ooyala, {strategy: 'html5', width: 320, height: 240}).toHtml(function(err, html) {
+          $('#html5-ooyala').append(html);
+        });
+      </script>
+    </article>
+    -->
 
     <h1>oEmbed Strategy</h1>
 
