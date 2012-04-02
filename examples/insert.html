@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Media Player Lib</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px 0 20px 20px;
+      }
+
+      article {
+        float: left;
+        margin-right: 20px;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        clear: left;
+        padding-top: 1em;
+      }
+
+      h2 {
+        margin-top: 0;
+      }
+    </style>
+    <script src="../lib/mediaplayerlib.js"></script>
+    <script>
+      var vimeo = {
+        "@type": "VideoObject",
+        "itemType": "VideoObject",
+        "playerType": "iframe",
+        "embedURL": "http://player.vimeo.com/video/1024832",
+        "url": "https://vimeo.com/1024832"
+      };
+
+      var youtube = {
+        "@type": "VideoObject",
+        "playerType": "iframe",
+        "embedURL": "http://www.youtube.com/v/jOUAIRbrv6s?version=3&f=videos&app=youtube_gdata"
+      };
+
+      var mp4 = {
+        "@type": "VideoObject",
+        "itemType": "VideoObject",
+        "contentURL": "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"
+      };
+
+      var ooyala = {
+        "@type": "VideoObject",
+        "embedURL": "http://player.ooyala.com/player.js?embedCode=t0bzFhNDpuUhvu1X4TEy3Txwa_KULnG2",
+        "playerType": "script",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Ooyala"
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <h1>Default Strategy</h1>
+
+    <article id="default-vimeo">
+      <h2>Vimeo</h2>
+      <div id="default-vimeo-player"></div>
+      <script>
+        mediaFactory.insert(vimeo, {width: 320, height: 240}, 'default-vimeo-player');
+      </script>
+    </article>
+
+    <article id="default-youtube">
+      <h2>Youtube</h2>
+      <div id="default-youtube-player"></div>
+      <script>
+        mediaFactory.insert(youtube, {width: 320, height: 240}, 'default-youtube-player');
+      </script>
+    </article>
+
+    <article id="default-mp4">
+      <h2>MP4</h2>
+      <div id="default-mp4-player"></div>
+      <script>
+        mediaFactory.insert(mp4, {width: 320, height: 240}, 'default-mp4-player');
+      </script>
+    </article>
+
+    <article id="default-ooyala">
+      <h2>Ooyala</h2>
+      <div id="default-ooyala-player"></div>
+      <script>
+        mediaFactory.insert(ooyala, {width: 320, height: 240}, 'default-ooyala-player');
+      </script>
+    </article>
+  </body>
+</html>
