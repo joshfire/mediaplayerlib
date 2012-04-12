@@ -33,5 +33,10 @@
   },
   "bundleDependencies": [
   ],
-  "license": "MIT"
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "LICENSE.txt"
+    }
+  ]
 }
