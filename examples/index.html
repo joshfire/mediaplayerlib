@@ -65,6 +65,11 @@
           "name": "Ooyala"
         }
       };
+
+      var mp3 = {
+        "@type": "AudioObject",
+        "contentURL": "http://www.largesound.com/ashborytour/sound/brobob.mp3"
+      };
     </script>
   </head>
   <body>
@@ -131,6 +136,15 @@
       <script>
         mediaFactory.resolve(mp4, {strategy: 'html5', width: 320, height: 240}).toHtml(function(err, html) {
           $('#html5-mp4').append(html);
+        });
+      </script>
+    </article>
+
+    <article id="html5-mp3">
+      <h2>MP3</h2>
+      <script>
+        mediaFactory.resolve(mp3, {strategy: 'html5', width: 320, height: 40}).toHtml(function(err, html) {
+          $('#html5-mp3').append(html);
         });
       </script>
     </article>
