@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Media Player Lib</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px 0 20px 20px;
+      }
+
+      article {
+        float: left;
+        margin-right: 20px;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        clear: left;
+        padding-top: 1em;
+      }
+
+      h2 {
+        margin-top: 0;
+      }
+    </style>
+    <link rel="stylesheet" type="text/css" href="mediaelement/mediaelementplayer.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="mediaelement/mediaelement-and-player.js"></script>
+    <script src="../lib/mediaplayerlib.js"></script>
+    <script>
+      var vimeo = {
+        "@type": "VideoObject",
+        "itemType": "VideoObject",
+        "playerType": "iframe",
+        "embedURL": "http://player.vimeo.com/video/1024832",
+        "url": "https://vimeo.com/1024832"
+      };
+
+      var youtube = {
+        "@type": "VideoObject",
+        "playerType": "iframe",
+        "embedURL": "http://www.youtube.com/v/jOUAIRbrv6s?version=3&f=videos&app=youtube_gdata"
+      };
+
+      var mp4 = {
+        "@type": "VideoObject",
+        "itemType": "VideoObject",
+        "contentURL": "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"
+      };
+    </script>
+  </head>
+  <body>
+    <h1>MediaElement Strategy</h1>
+
+    <article id="mediaelement-vimeo">
+      <h2>Vimeo</h2>
+      <div id="mediaelement-vimeo-player"></div>
+      <script>
+        mediaFactory.insert(vimeo, {strategy: 'mediaElement', width: 320, height: 240}, 'mediaelement-vimeo-player');
+      </script>
+    </article>
+
+    <article id="mediaelement-youtube">
+      <h2>Youtube</h2>
+      <div id="mediaelement-youtube-player"></div>
+      <script>
+        mediaFactory.insert(youtube, {strategy: 'mediaElement', width: 320, height: 240}, 'mediaelement-youtube-player');
+      </script>
+    </article>
+
+    <article id="mediaelement-mp4">
+      <h2>MP4</h2>
+      <div id="mediaelement-mp4-player"></div>
+      <script>
+        mediaFactory.insert(mp4, {strategy: 'mediaElement', width: 320, height: 240}, document.getElementById('mediaelement-mp4-player'));
+      </script>
+    </article>
+  </body>
+</html>
